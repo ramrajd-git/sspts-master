@@ -9,7 +9,8 @@ jdk:
 - openjdk8
 
 script:
-- test/run.sh
+    - ./gradlew build --scan -s
+#- test/run.sh
   #s- mvn --version
   # Skip unit test in CI
   #- mvn clean install -Dmaven.test.skip=true
