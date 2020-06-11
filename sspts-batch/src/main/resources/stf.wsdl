@@ -1,0 +1,335 @@
+<wsdl:definitions targetNamespace="http://skat.dk/begrebsmodel/2009/01/15/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://skat.dk/begrebsmodel/2009/01/15/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://skat.dk/begrebsmodel/2009/01/15/">
+   <wsdl:types>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://skat.dk/begrebsmodel/2009/01/15/" version="1.0" xmlns:fase2.1="http://skat.dk/begrebsmodel/2009/01/15/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+         <xs:element name="Kontekst" type="fase2.1:KontekstType"/>
+         <xs:complexType name="KontekstType">
+            <xs:sequence>
+               <xs:any namespace="##other" processContents="skip"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:simpleType name="DatoTidType">
+            <xs:restriction base="xs:dateTime">
+               <xs:whiteSpace value="collapse"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="NavnType">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="300"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="QNameType">
+            <xs:restriction base="xs:QName">
+               <xs:maxLength value="300"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:element name="StyretFiloverførselServiceQName" type="fase2.1:QNameType"/>
+         <xs:element name="StyretFiloverførselBeskedQName" type="fase2.1:QNameType"/>
+         <xs:element name="StyretFiloverførselSendAnmod_I">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselSendAnmod_IType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselSendAnmod_IType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <!--Sequence removed-->
+               <xs:element ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:simpleType name="anyURIType">
+            <xs:restriction base="xs:anyURI">
+               <xs:maxLength value="300"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:element name="StyretFiloverførselUploadURL" type="fase2.1:anyURIType"/>
+         <xs:element name="StyretFiloverførselBrugerNavn" type="fase2.1:NavnType"/>
+         <xs:simpleType name="PasswordType">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="50"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:element name="StyretFiloverførselPassword" type="fase2.1:PasswordType"/>
+         <xs:element name="StyretFiloverførselSendAnmod_O">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselSendAnmod_OType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselSendAnmod_OType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselBeskedQName"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselUploadURL"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselBrugerNavn"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselPassword"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselSendAfslut_I">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselSendAfslut_IType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselSendAfslut_IType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <!--Sequence removed-->
+               <xs:element ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselSendAfslut_O">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselSendAfslut_OType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselSendAfslut_OType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselDownloadURL" type="fase2.1:anyURIType"/>
+         <xs:element name="StyretFiloverførselModtagAnmod_I">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselModtagAnmod_IType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselModtagAnmod_IType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <!--Sequence removed-->
+               <xs:element ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element ref="fase2.1:StyretFiloverførselBeskedQName"/>
+               <xs:element ref="fase2.1:StyretFiloverførselDownloadURL"/>
+               <xs:element ref="fase2.1:StyretFiloverførselBrugerNavn"/>
+               <xs:element ref="fase2.1:StyretFiloverførselPassword"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselModtagAnmod_O">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselModtagAnmod_OType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselModtagAnmod_OType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselModtagAfslut_I">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselModtagAfslut_IType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselModtagAfslut_IType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <!--Sequence removed-->
+               <xs:element ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="StyretFiloverførselModtagAfslut_O">
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:extension base="fase2.1:StyretFiloverførselModtagAfslut_OType">
+                     <xs:attribute form="unqualified" name="revision">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:pattern value="r3097"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="StyretFiloverførselModtagAfslut_OType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+               <!--Sequence removed-->
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselServiceQName"/>
+               <xs:element minOccurs="0" ref="fase2.1:StyretFiloverførselBeskedQName"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="KompenserTrans" type="fase2.1:KompenserTransType"/>
+         <xs:complexType name="KompenserTransType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="KompenserTransSvar" type="fase2.1:KompenserTransSvarType"/>
+         <xs:complexType name="KompenserTransSvarType">
+            <xs:sequence>
+               <xs:element ref="fase2.1:Kontekst"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="StyretFiloverførselSendAfslut_I">
+      <wsdl:part element="tns:StyretFiloverførselSendAfslut_I" name="StyretFiloverførselSendAfslut_I"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselSendAnmod_I">
+      <wsdl:part element="tns:StyretFiloverførselSendAnmod_I" name="StyretFiloverførselSendAnmod_I"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselSendAnmod_O">
+      <wsdl:part element="tns:StyretFiloverførselSendAnmod_O" name="StyretFiloverførselSendAnmod_O"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselModtagAfslut_I">
+      <wsdl:part element="tns:StyretFiloverførselModtagAfslut_I" name="StyretFiloverførselModtagAfslut_I"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselModtagAnmod_O">
+      <wsdl:part element="tns:StyretFiloverførselModtagAnmod_O" name="StyretFiloverførselModtagAnmod_O"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselModtagAfslut_O">
+      <wsdl:part element="tns:StyretFiloverførselModtagAfslut_O" name="StyretFiloverførselModtagAfslut_O"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselSendAfslut_O">
+      <wsdl:part element="tns:StyretFiloverførselSendAfslut_O" name="StyretFiloverførselSendAfslut_O"/>
+   </wsdl:message>
+   <wsdl:message name="StyretFiloverførselModtagAnmod_I">
+      <wsdl:part element="tns:StyretFiloverførselModtagAnmod_I" name="StyretFiloverførselModtagAnmod_I"/>
+   </wsdl:message>
+   <wsdl:portType name="STFPort">
+      <wsdl:operation name="StyretFiloverførselSendAfslut">
+         <wsdl:input message="tns:StyretFiloverførselSendAfslut_I" name="StyretFiloverførselSendAfslut_I"/>
+         <wsdl:output message="tns:StyretFiloverførselSendAfslut_O" name="StyretFiloverførselSendAfslut_O"/>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselSendAnmod">
+         <wsdl:input message="tns:StyretFiloverførselSendAnmod_I" name="StyretFiloverførselSendAnmod_I"/>
+         <wsdl:output message="tns:StyretFiloverførselSendAnmod_O" name="StyretFiloverførselSendAnmod_O"/>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselModtagAfslut">
+         <wsdl:input message="tns:StyretFiloverførselModtagAfslut_I" name="StyretFiloverførselModtagAfslut_I"/>
+         <wsdl:output message="tns:StyretFiloverførselModtagAfslut_O" name="StyretFiloverførselModtagAfslut_O"/>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselModtagAnmod">
+         <wsdl:input message="tns:StyretFiloverførselModtagAnmod_I" name="StyretFiloverførselModtagAnmod_I"/>
+         <wsdl:output message="tns:StyretFiloverførselModtagAnmod_O" name="StyretFiloverførselModtagAnmod_O"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="STFPortSoap11" type="tns:STFPort">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="StyretFiloverførselSendAfslut">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="StyretFiloverførselSendAfslut_I">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="StyretFiloverførselSendAfslut_O">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselSendAnmod">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="StyretFiloverførselSendAnmod_I">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="StyretFiloverførselSendAnmod_O">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselModtagAfslut">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="StyretFiloverførselModtagAfslut_I">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="StyretFiloverførselModtagAfslut_O">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="StyretFiloverførselModtagAnmod">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="StyretFiloverførselModtagAnmod_I">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="StyretFiloverførselModtagAnmod_O">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="STFPortService">
+      <wsdl:port binding="tns:STFPortSoap11" name="STFPortSoap11">
+         <soap:address location="http://localhost:8080/ws"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

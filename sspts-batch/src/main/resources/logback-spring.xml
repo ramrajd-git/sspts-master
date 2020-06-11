@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<!-- Insert the current time formatted as "yyyy-MM-dd'T'HHmmss" under the key "bySecond" into the logger context. This value will be available to all subsequent configuration elements. -->
+	<timestamp key="bySecond" datePattern="yyyy-MM-dd'T'HHmmss"/>
+	<appender name="FILE"	class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_PATH}/${bySecond}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/${bySecond}.log.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy	class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>10MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<appender name="BATCH-INFO"	class="ch.qos.logback.core.FileAppender">><filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator class="ch.qos.logback.classic.boolex.OnMarkerEvaluator">
+				<marker>BATCH</marker>
+			</evaluator>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<File>${LOG_PATH}/batch.info</File>
+	</appender>
+	<appender name="BATCH-ERROR"	class="ch.qos.logback.core.FileAppender">><filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<File>${LOG_PATH}/batch.err</File>
+	</appender>
+	<appender name="BATCH-WARN"	class="ch.qos.logback.core.FileAppender">><filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator class="ch.qos.logback.classic.boolex.OnMarkerEvaluator">
+				<marker>BATCH</marker>
+			</evaluator>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<File>${LOG_PATH}/batch.warn</File>
+	</appender>
+	<root level="INFO">
+		<appender-ref ref="BATCH-ERROR"/>
+		<appender-ref ref="BATCH-INFO" />
+		<appender-ref ref="BATCH-WARN" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
