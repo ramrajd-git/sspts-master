@@ -1,7 +1,7 @@
 #!/bin/sh
 cd $(dirname $0)
 
-cd ../complete
+cd ../sspts-batch
 ./gradlew build
 ret=$?
 if [ $ret -ne 0 ]; then
@@ -10,7 +10,7 @@ fi
 rm -rf build
 
 cd ../initial
-../complete/gradlew -b ../initial/build.gradle wrapper
+../sspts-batch/gradlew -b ../sspts-batch/build.gradle wrapper
 ./gradlew compileJava
 ret=$?
 if [ $ret -ne 0 ]; then
